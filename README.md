@@ -28,7 +28,8 @@ For more details, please refer to [Attentional Constellation Nets For Few-shot L
 2. Install required packages.
    ```bash
    # Install PyTorch 1.8.0 w/ CUDA 11.1.
-   conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge
+   # cuda 10.2 在服务器上不报错，11.1会报错找不到GPU
+   conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=10.2 -c pytorch -c conda-forge
 
    # Install yaml
    conda install -c anaconda pyyaml
@@ -51,6 +52,8 @@ For more details, please refer to [Attentional Constellation Nets For Few-shot L
    The code assumes datasets are saved according to the following structure:
    
 ```
+# 这里修改下datasets下的with open('绝对路径','rb') as f :
+# 相对路径会报错（暂时没找到为什么）
  materials
 ├── mini-imagenet
 │   ├── miniImageNet_category_split_test.pickle
@@ -98,7 +101,90 @@ We provide the Constellation Nets checkpoints pre-trained on the Mini-Imagenet, 
    # Usage: bash ./scripts/test.sh [Dataset (mini, cifar-fs, fc100)] [Backbone (conv4, res12)] [GPU index] [Tag]
    bash ./scripts/eval.sh mini conv4 0 trial1
    ```
+### 数据集测试
 
+
+<table>
+  <tr>
+    <td>datasets</td>
+    <td colspan="2" align="center">miniImageNet 5-way</td>
+    <td colspan="2" align="center">miniImageNet 5-way</td>
+  </tr>
+  <tr>
+    <td>datasets</td>
+    <td colspan="2" align="center">BackBone-ResNet12</td>
+    <td colspan="2" align="center">BackBone-Conv-4</td>
+  </tr>
+  <tr>
+    <td>setups</td>
+    <td>5-way 1-shot </td>
+    <td>5-way 5-shot </td>
+    <td>5-way 1-shot </td>
+    <td>5-way 5-shot </td>
+  </tr>
+  <tr>
+    <td>accuracy</td>
+    <td align="center">64.89 ± 0.23</td>
+    <td align="center">79.95 ± 0.17</td>
+    <td align="center">58.82 ± 0.23</td>
+    <td align="center">75.00 ± 0.18</td>
+   </tr>
+
+</table>
+
+<table>
+  <tr>
+    <td>datasets</td>
+    <td colspan="2" align="center">CIFAR-FS 5-way</td>
+    <td colspan="2" align="center">CIFAR-FS 5-way</td>
+  </tr>
+  <tr>
+    <td>datasets</td>
+    <td colspan="2" align="center">BackBone-ResNet12</td>
+    <td colspan="2" align="center">BackBone-Conv-4</td>
+  </tr>
+  <tr>
+    <td>setups</td>
+    <td>5-way 1-shot </td>
+    <td>5-way 5-shot </td>
+    <td>5-way 1-shot </td>
+    <td>5-way 5-shot </td>
+  </tr>
+  <tr>
+    <td>accuracy</td>
+    <td align="center">75.4 ± 0.2</td>
+    <td align="center">86.8 ± 0.2</td>
+    <td align="center">69.3 ± 0.3</td>
+    <td align="center">82.7 ± 0.2</td>
+   </tr>
+</table>
+
+<table>
+  <tr>
+    <td>datasets</td>
+    <td colspan="2" align="center">FC100 5-way</td>
+    <td colspan="2" align="center">FC100 5-way</td>
+  </tr>
+  <tr>
+    <td>datasets</td>
+    <td colspan="2" align="center">BackBone-ResNet12</td>
+    <td colspan="2" align="center">BackBone-Conv-4</td>
+  </tr>
+  <tr>
+    <td>setups</td>
+    <td>5-way 1-shot </td>
+    <td>5-way 5-shot </td>
+    <td>5-way 1-shot </td>
+    <td>5-way 5-shot </td>
+  </tr>
+  <tr>
+    <td>accuracy</td>
+    <td align="center">43.8 ± 0.2</td>
+    <td align="center">59.7 ± 0.2</td>
+    <td align="center">待测试</td>
+    <td align="center">待测试</td>
+   </tr>
+</table>
 ## Citation
 ```
 @inproceedings{
