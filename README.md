@@ -111,7 +111,7 @@ We provide the Constellation Nets checkpoints pre-trained on the Mini-Imagenet, 
     <td colspan="2" align="center">miniImageNet 5-way</td>
   </tr>
   <tr>
-    <td>datasets</td>
+    <td>BackBone</td>
     <td colspan="2" align="center">BackBone-ResNet12</td>
     <td colspan="2" align="center">BackBone-Conv-4</td>
   </tr>
@@ -139,7 +139,7 @@ We provide the Constellation Nets checkpoints pre-trained on the Mini-Imagenet, 
     <td colspan="2" align="center">CIFAR-FS 5-way</td>
   </tr>
   <tr>
-    <td>datasets</td>
+    <td>BackBone</td>
     <td colspan="2" align="center">BackBone-ResNet12</td>
     <td colspan="2" align="center">BackBone-Conv-4</td>
   </tr>
@@ -166,7 +166,7 @@ We provide the Constellation Nets checkpoints pre-trained on the Mini-Imagenet, 
     <td colspan="2" align="center">FC100 5-way</td>
   </tr>
   <tr>
-    <td>datasets</td>
+    <td>BackBone</td>
     <td colspan="2" align="center">BackBone-ResNet12</td>
     <td colspan="2" align="center">BackBone-Conv-4</td>
   </tr>
@@ -185,6 +185,8 @@ We provide the Constellation Nets checkpoints pre-trained on the Mini-Imagenet, 
     <td align="center">待测试</td>
    </tr>
 </table>
+
+
 ## Citation
 ```
 @inproceedings{
